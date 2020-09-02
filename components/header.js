@@ -22,7 +22,8 @@ class Header extends Component {
         source={require('../images/blackdesertBDO.jpg')}
         style={styles.background}
         imageStyle={styles.imagePosition}>
-            <Text style={styles.text}>BDO Boss Scheduler</Text>
+            <Text style={styles.title}>{this.props.title}</Text>
+            <Text style={styles.subtitle}>{this.props.subtitle}</Text>
         </ImageBackground>
       </>
     );
@@ -42,8 +43,14 @@ const styles = StyleSheet.create({
       overflow: 'visible',
       resizeMode: 'cover',
   },
-  text: {
+  title: {
       fontSize: 40,
+      fontWeight: '600',
+      textAlign: 'center',
+      color: '#FFFFFF'
+  },
+  subtitle: {
+    fontSize: 20,
       fontWeight: '600',
       textAlign: 'center',
       color: '#FFFFFF'

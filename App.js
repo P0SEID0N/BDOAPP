@@ -7,118 +7,47 @@
  */
 import 'react-native-gesture-handler';
 import React, {Component} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
 
-import Header from './components/header';
-import BDOTimerDisplay from './components/bossTimerDisplay';
+import HomeScreen from './screens/homeScreen';
+import SettingsScreen from './screens/settingsScreen';
+import AboutScreen from './screens/aboutScreen';
+import AccountScreen from './screens/accountScreen';
 
-import {
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import {NavigationContainer} from '@react-navigation/native';
+
+const Tab = createBottomTabNavigator();
 
 class App extends Component {
   render() {
     return (
-      <NavigationContainer>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-            <Header />
-            <View style={{flexDirection: 'column', backgroundColor:'black'}}>
-              <BDOTimerDisplay boss="Karanda"></BDOTimerDisplay>
-              <BDOTimerDisplay boss="Kzarka"></BDOTimerDisplay>
-              <BDOTimerDisplay boss="Kutum"></BDOTimerDisplay>
-              <BDOTimerDisplay boss="Nouver"></BDOTimerDisplay>
-              <BDOTimerDisplay boss="Garmoth"></BDOTimerDisplay>
-              <BDOTimerDisplay boss="Vell"></BDOTimerDisplay>
-            </View>
-            <View style={styles.body}>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Step One</Text>
-                <Text style={styles.sectionDescription}>
-                  Edit <Text style={styles.highlight}>App.js</Text> to change this
-                  screen and then come back to see your edits.
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>See Your Changes</Text>
-                <Text style={styles.sectionDescription}>
-                  <ReloadInstructions />
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Debug</Text>
-                <Text style={styles.sectionDescription}>
-                  <DebugInstructions />
-                </Text>
-              </View>
-              <View style={styles.sectionContainer}>
-                <Text style={styles.sectionTitle}>Learn More</Text>
-                <Text style={styles.sectionDescription}>
-                  Read the docs to discover what to do next:
-                </Text>
-              </View>
-              <LearnMoreLinks />
-            </View>
-          </ScrollView>
-        </SafeAreaView>
+      <NavigationContainer theme={darkTheme}>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="About" component= {AboutScreen} />
+        <Tab.Screen name="Account" component= {AccountScreen} />
+      </Tab.Navigator>
       </NavigationContainer>
     );
   };
 }
+
+const darkTheme = {
+  dark: true,
+  colors: {
+    primary: 'white',
+    background: 'black',
+    card: 'black',
+    text: 'white',
+    border: 'grey',
+  },
+};
   
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.black,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+//const styles = StyleSheet.create({
+//  
+//});
 
 export default App;

@@ -194,7 +194,6 @@
 				17221ABC9CD080BD14FFEBFD /* Pods-BDOApp-tvOSTests.debug.xcconfig */,
 				60A01E48757DC37C90555CBC /* Pods-BDOApp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
