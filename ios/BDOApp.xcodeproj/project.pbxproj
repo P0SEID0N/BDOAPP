@@ -575,6 +575,7 @@
 			name = LaunchScreen.xib;
 			path = BDOApp;
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 /* End PBXVariantGroup section */
 
