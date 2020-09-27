@@ -44,6 +44,9 @@ class Countdown extends Component {
     if (currentAppState === 'active' && wentBackgroundAt) {
       const diff = (Date.now() - wentBackgroundAt) / 1000.0;
       this.setState({countdownTime: this.state.countdownTime - diff});
+      console.log('PROPTIME: '+this.props.secondsRemaining);
+      console.log('STATETIME: '+this.state.countdownTime);
+
     
     }
     if (currentAppState === 'background') {
@@ -58,6 +61,13 @@ class Countdown extends Component {
     if (this.state.lastCount === null && this.state.countdownTime === 0) {
       this.setState({
         countdownTime: this.props.secondsRemaining,
+      });
+    }
+
+    //If the props change, then we have a problem.
+    if(prevProps.secondsRemaining !== this.props.secondsRemaining) {
+      this.setState({
+        countdownTime: this.props.secondsRemaining
       });
     }
   }
