@@ -64,7 +64,7 @@ class Countdown extends Component {
       });
     }
 
-    //If the props change, then we have a problem.
+    //If the props change
     if(prevProps.secondsRemaining !== this.props.secondsRemaining) {
       this.setState({
         countdownTime: this.props.secondsRemaining
@@ -116,6 +116,8 @@ class Countdown extends Component {
     if(this.state.countdownTime === 0 && this.state.lastCount === 1) {
         //Timer finished
         clearInterval(this.timer);
+        //We need something here to tell the bosstimer to recalculate
+        this.props.ended();
     }
   }
 

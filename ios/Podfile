@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'BDOApp' do
-  # Pods for BDOApp
+target 'BDOBuddy' do
+  # Pods for BDOBuddy
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -79,7 +79,7 @@ target 'BDOApp' do
 
   pod 'RNCPushNotificationIOS', :path => '../node_modules/@react-native-community/push-notification-ios'
 
-  target 'BDOAppTests' do
+  target 'BDOBuddyTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -96,10 +96,10 @@ target 'BDOApp' do
   end
 end
 
-target 'BDOApp-tvOS' do
-  # Pods for BDOApp-tvOS
+target 'BDOBuddy-tvOS' do
+  # Pods for BDOBuddy-tvOS
 
-  target 'BDOApp-tvOSTests' do
+  target 'BDOBuddy-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

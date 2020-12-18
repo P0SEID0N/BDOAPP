@@ -18,7 +18,8 @@ import {
 } from 'react-native';
 import moment from 'moment';
 import CountDown from './countdown';
-import NotificationService from '../services/notification'
+import NotificationService from '../services/notification';
+import images from '../services/images';
 
 class BossTimerDisplay extends Component {
 
@@ -99,7 +100,11 @@ class BossTimerDisplay extends Component {
     else {
         return this.getNextSpawn(startDay, today+1, bossSchedule);
     }
-  }  
+  }
+
+  countdownExpired() {
+    this.calculateNextSpawnTime(this.props.boss);
+  }
 
   calculateNextSpawnTime(Boss) {
     const bossSchedule = Schedule[(Boss+"").toLowerCase()];
@@ -129,14 +134,14 @@ class BossTimerDisplay extends Component {
         onPress={this.notif.scheduleNotification}
           style={styles.touchable}>
           <ImageBackground
-            source={require('../images/blackdesertBDO.jpg')}
+            source={images[this.props.boss]}
             style={styles.image}
             imageStyle={{borderRadius: 10}}
           />
           <View
             style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
              <Text style={styles.text}>{this.props.boss}</Text>   
-             <CountDown secondsRemaining={this.state.timeUntilSpawn*3600}></CountDown>
+             <CountDown secondsRemaining={this.state.timeUntilSpawn*3600} ended={this.countdownExpired}></CountDown>
           </View>
         </TouchableOpacity>
       </View>

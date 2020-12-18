@@ -18,10 +18,7 @@ import Header from '../components/header';
 import BossTimerDisplay from '../components/bossTimerDisplay';
 
 import {
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
 import PushNotification from 'react-native-push-notification';
@@ -57,34 +54,7 @@ class HomeScreen extends Component {
                   <BossTimerDisplay boss="Nouver" bossIdentifier="4"></BossTimerDisplay>
                   <BossTimerDisplay boss="Garmoth" bossIdentifier="5"></BossTimerDisplay>
                   <BossTimerDisplay boss="Vell" bossIdentifier="6"></BossTimerDisplay>
-                </View>
-                <View style={styles.body}>
-                  <View style={styles.sectionContainer}>
-                    <Text style={styles.sectionTitle}>Step One</Text>
-                    <Text style={styles.sectionDescription}>
-                      Edit <Text style={styles.highlight}>App.js</Text> to change this
-                      screen and then come back to see your edits.
-                    </Text>
-                  </View>
-                  <View style={styles.sectionContainer}>
-                    <Text style={styles.sectionTitle}>See Your Changes</Text>
-                    <Text style={styles.sectionDescription}>
-                      <ReloadInstructions />
-                    </Text>
-                  </View>
-                  <View style={styles.sectionContainer}>
-                    <Text style={styles.sectionTitle}>Debug</Text>
-                    <Text style={styles.sectionDescription}>
-                      <DebugInstructions />
-                    </Text>
-                  </View>
-                  <View style={styles.sectionContainer}>
-                    <Text style={styles.sectionTitle}>Learn More</Text>
-                    <Text style={styles.sectionDescription}>
-                      Read the docs to discover what to do next:
-                    </Text>
-                  </View>
-                  <LearnMoreLinks />
+                  <BossTimerDisplay boss="Offin" bossIdentifier="7"></BossTimerDisplay>
                 </View>
               </ScrollView>
             </SafeAreaView>
@@ -96,7 +66,7 @@ class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: "black",
   },
   engine: {
     position: 'absolute',

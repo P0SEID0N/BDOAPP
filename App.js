@@ -13,6 +13,8 @@ import SettingsScreen from './screens/settingsScreen';
 import AboutScreen from './screens/aboutScreen';
 import AccountScreen from './screens/accountScreen';
 
+import SplashScreen from 'react-native-splash-screen'
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
@@ -20,6 +22,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 class App extends Component {
+
+  componentDidMount(){
+    SplashScreen.hide();
+  };
+
   render() {
     return (
       <NavigationContainer theme={darkTheme}>
