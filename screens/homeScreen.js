@@ -17,10 +17,6 @@ import {
 import Header from '../components/header';
 import BossTimerDisplay from '../components/bossTimerDisplay';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
-
 import PushNotification from 'react-native-push-notification';
 
 class HomeScreen extends Component {
@@ -48,13 +44,13 @@ class HomeScreen extends Component {
                 style={styles.scrollView}>
                 <Header title="BDO Buddy" subtitle="Boss Timers"/>
                 <View style={{flexDirection: 'column', backgroundColor:'black'}}>
-                  <BossTimerDisplay boss="Karanda" bossIdentifier="1"></BossTimerDisplay>
-                  <BossTimerDisplay boss="Kzarka" bossIdentifier="2"></BossTimerDisplay>
-                  <BossTimerDisplay boss="Kutum" bossIdentifier="3"></BossTimerDisplay>
-                  <BossTimerDisplay boss="Nouver" bossIdentifier="4"></BossTimerDisplay>
-                  <BossTimerDisplay boss="Garmoth" bossIdentifier="5"></BossTimerDisplay>
-                  <BossTimerDisplay boss="Vell" bossIdentifier="6"></BossTimerDisplay>
-                  <BossTimerDisplay boss="Offin" bossIdentifier="7"></BossTimerDisplay>
+                  <BossTimerDisplay {...this.props} boss="Karanda" bossIdentifier="1"></BossTimerDisplay>
+                  <BossTimerDisplay {...this.props} boss="Kzarka" bossIdentifier="2"></BossTimerDisplay>
+                  <BossTimerDisplay {...this.props} boss="Kutum" bossIdentifier="3"></BossTimerDisplay>
+                  <BossTimerDisplay {...this.props} boss="Nouver" bossIdentifier="4"></BossTimerDisplay>
+                  <BossTimerDisplay {...this.props} boss="Garmoth" bossIdentifier="5"></BossTimerDisplay>
+                  <BossTimerDisplay {...this.props} boss="Vell" bossIdentifier="6"></BossTimerDisplay>
+                  <BossTimerDisplay {...this.props} boss="Offin" bossIdentifier="7"></BossTimerDisplay>
                 </View>
               </ScrollView>
             </SafeAreaView>
@@ -73,7 +69,7 @@ const styles = StyleSheet.create({
     right: 0,
   },
   body: {
-    backgroundColor: Colors.black,
+    backgroundColor: 'black',
   },
   sectionContainer: {
     marginTop: 32,
@@ -82,19 +78,19 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
-    color: Colors.black,
+    color: 'black',
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: 'black',
   },
   highlight: {
     fontWeight: '700',
   },
   footer: {
-    color: Colors.dark,
+    color: 'black',
     fontSize: 12,
     fontWeight: '600',
     padding: 4,

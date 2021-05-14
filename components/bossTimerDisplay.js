@@ -131,7 +131,7 @@ class BossTimerDisplay extends Component {
     return (
         <View style={styles.container}>
         <TouchableOpacity
-        onPress={this.notif.scheduleNotification}
+        onPress={() => this.props.navigation.navigate('BossScreen', {bossname: this.props.boss})}
           style={styles.touchable}>
           <ImageBackground
             source={images[this.props.boss]}

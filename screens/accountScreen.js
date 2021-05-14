@@ -20,9 +20,6 @@ import {
 import Header from '../components/header';
 import { DarkButton } from '../components/darkButton';
 
-import {
-    Colors,
-  } from 'react-native/Libraries/NewAppScreen';
 import { TouchableWithoutFeedback, TouchableOpacity } from 'react-native-gesture-handler';
 
 class AccountScreen extends Component {
@@ -66,14 +63,14 @@ class AccountScreen extends Component {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: 'white',
   },
   engine: {
     position: 'absolute',
     right: 0,
   },
   body: {
-    backgroundColor: Colors.black,
+    backgroundColor: 'black',
   },
   sectionContainer: {
     marginTop: 32,
@@ -110,13 +107,13 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: 'black',
   },
   highlight: {
     fontWeight: '700',
   },
   footer: {
-    color: Colors.dark,
+    color: 'black',
     fontSize: 12,
     fontWeight: '600',
     padding: 4,

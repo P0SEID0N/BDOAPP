@@ -13,18 +13,59 @@ import {
   Text,
 } from 'react-native';
 
+import images from '../services/images';
+
+/*
+Bare header will return the default header with the default styling + titles
+*/
+function BareHeader(props) {
+  return (
+    <>
+      <ImageBackground
+      accessibilityRole={'image'}
+      source={require('../images/blackdesertBDO.jpg')}
+      style={styles.background}
+      imageStyle={styles.imagePosition}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.subtitle}>{props.subtitle}</Text>
+      </ImageBackground>
+    </>
+  );
+}
+
+/*
+Dynamic header will expect the following props:
+* - Dynamic image source IE: '../images/xyz.png' 
+* - Dynamic header title
+* - Dynamic header sub title
+*/
+function DynamicHeader(props) {
+  return (
+    <>
+      <ImageBackground
+      accessibilityRole={'image'}
+      source={images[props.imagesource]}
+      style={styles.background}
+      imageStyle={styles.imagePosition}>
+          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.subtitle}>{props.subtitle}</Text>
+      </ImageBackground>
+    </>
+  );
+}
+
 class Header extends Component {
-  render(props) {
+
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
     return (
       <>
-        <ImageBackground
-        accessibilityRole={'image'}
-        source={require('../images/blackdesertBDO.jpg')}
-        style={styles.background}
-        imageStyle={styles.imagePosition}>
-            <Text style={styles.title}>{this.props.title}</Text>
-            <Text style={styles.subtitle}>{this.props.subtitle}</Text>
-        </ImageBackground>
+        {this.props.imagesource
+        ? <DynamicHeader {...this.props}></DynamicHeader>
+        : <BareHeader {...this.props}></BareHeader>}
       </>
     );
   };

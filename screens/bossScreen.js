@@ -16,9 +16,20 @@ import {
   StatusBar,
 } from 'react-native';
 
+import Schedule from '../config/bossschedule';
+
 import Header from '../components/header';
 
-class SettingsScreen extends Component {
+class BossScreen extends Component {
+
+  constructor(props) {
+      super(props);
+
+      this.state = {
+          bossname: this.props.route.params.bossname
+      }
+  }  
+
   render() {
     return (
         <>
@@ -27,13 +38,12 @@ class SettingsScreen extends Component {
               <ScrollView
                 contentInsetAdjustmentBehavior="automatic"
                 style={styles.scrollView}>
-                <Header title="Settings" subtitle="Application Settings" />
+                <Header imagesource={this.state.bossname} title={this.state.bossname} subtitle="Boss Information Page"/>
                 <View style={styles.body}>
                   <View style={styles.sectionContainer}>
-                    <Text style={styles.sectionTitle}>Step One</Text>
+                    <Text style={styles.sectionTitle}>Boss Screen {this.props.route.params.bossname}</Text>
                     <Text style={styles.sectionDescription}>
-                      Edit <Text style={styles.highlight}>App.js</Text> to change this
-                      screen and then come back to see your edits.
+                        This is test text that will be on the boss screen page.
                     </Text>
                   </View>
                 </View>
@@ -63,13 +73,13 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
-    color: 'black',
+    color: 'white',
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: 'black',
+    color: 'white',
   },
   highlight: {
     fontWeight: '700',
@@ -84,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SettingsScreen;
+export default BossScreen;

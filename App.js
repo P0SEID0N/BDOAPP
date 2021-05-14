@@ -9,6 +9,7 @@ import 'react-native-gesture-handler';
 import React, {Component} from 'react';
 
 import HomeScreen from './screens/homeScreen';
+import HomeStackNav from './navigators/homeStackNav';
 import SettingsScreen from './screens/settingsScreen';
 import AboutScreen from './screens/aboutScreen';
 import AccountScreen from './screens/accountScreen';
@@ -31,7 +32,7 @@ class App extends Component {
     return (
       <NavigationContainer theme={darkTheme}>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Home" component={HomeStackNav} />
         <Tab.Screen name="Settings" component={SettingsScreen} />
         <Tab.Screen name="About" component= {AboutScreen} />
         <Tab.Screen name="Account" component= {AccountScreen} />
