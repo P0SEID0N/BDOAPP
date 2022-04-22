@@ -20,9 +20,16 @@ import {
 import Header from '../components/header';
 import { DarkButton } from '../components/darkButton';
 
+import { removeStorage } from '../services/storage';
+
 import { TouchableWithoutFeedback, TouchableOpacity } from 'react-native-gesture-handler';
 
 class AccountScreen extends Component {
+
+  removeLocalGearData() {
+    removeStorage('gear').then(alert('Gear Data in local storage cleared!'));
+  }
+
   render() {
     return (
         <>
@@ -51,6 +58,10 @@ class AccountScreen extends Component {
                   <View style={styles.sectionContainer}>
                       <Text style={styles.sectionTitle}>Patreon Status</Text>
                       <Text style={styles.sectionItem}>Not a Patreon</Text>
+                  </View>
+                  <View style={styles.sectionContainer}>
+                      <Text style={styles.sectionTitle}>Gear Settings</Text>
+                      <DarkButton onPress={() => {this.removeLocalGearData()}}>Delete Gear Data</DarkButton>
                   </View>
                 </View>
               </ScrollView>

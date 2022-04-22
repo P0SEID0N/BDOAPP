@@ -115,6 +115,7 @@ class Countdown extends Component {
     }
     if(this.state.countdownTime === 0 && this.state.lastCount === 1) {
         //Timer finished
+        console.log("TIMER CONCLUDED time: "+this.state.countdownTime+" lastcount: "+this.state.lastCount)
         clearInterval(this.timer);
         //We need something here to tell the bosstimer to recalculate
         this.props.ended();

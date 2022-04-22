@@ -10,19 +10,32 @@ import React, {Component} from 'react';
 
 import HomeScreen from './screens/homeScreen';
 import HomeStackNav from './navigators/homeStackNav';
-import SettingsScreen from './screens/settingsScreen';
+import GrindingScreen from './screens/grindingScreen';
 import AboutScreen from './screens/aboutScreen';
 import AccountScreen from './screens/accountScreen';
+import GearScreen from './screens/gearScreen';
 
 import SplashScreen from 'react-native-splash-screen'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import NotifService from './services/notifservice';
+import { NotificationContext } from './services/notificationContext';
+
 
 const Tab = createBottomTabNavigator();
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    this.notif = new NotifService(
+      //this.onRegister.bind(this),
+      this.onNotif.bind(this),
+    );
+  }
 
   componentDidMount(){
     SplashScreen.hide();
@@ -30,16 +43,22 @@ class App extends Component {
 
   render() {
     return (
-      <NavigationContainer theme={darkTheme}>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeStackNav} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-        <Tab.Screen name="About" component= {AboutScreen} />
-        <Tab.Screen name="Account" component= {AccountScreen} />
-      </Tab.Navigator>
-      </NavigationContainer>
+      <NotificationContext.Provider value={this.notif}>
+        <NavigationContainer theme={darkTheme}>
+          <Tab.Navigator>
+            <Tab.Screen name="Timers" component={HomeStackNav}/>
+            <Tab.Screen name="Grinding" component={GrindingScreen} />
+            <Tab.Screen name="My Gear" component= {GearScreen} />
+            <Tab.Screen name="Account" component= {AccountScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </NotificationContext.Provider>
     );
   };
+
+  onNotif(notif) {
+    Alert.alert(notif.title, notif.message);
+  }
 }
 
 const darkTheme = {
